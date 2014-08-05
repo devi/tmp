@@ -404,15 +404,15 @@ Blowfish.prototype.expandstate = function(data, databytes, key, keybytes) {
 };
 
 Blowfish.prototype.enc = function(data, blocks) {
-  var d = data.subarray(0);
-  for (var i = 0; i < blocks; i++) {
+  var i, d = data.subarray(0);
+  for (i = 0; i < blocks; i++) {
     this.encipher(d, d.subarray(1));
     d = d.subarray(2);
   }
 };
 
 Blowfish.prototype.dec = function(data, blocks) {
-  var d = data.subarray(0);
+  var i, d = data.subarray(0);
   for (i = 0; i < blocks; i++) {
     this.decipher(d, d.subarray(1));
     d = d.subarray(2);
