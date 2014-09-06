@@ -1,10 +1,14 @@
-// Ported from OpenBSD bcrypt_pbkdf.c v1.9
-//
-// Require http://dchest.github.io/tweetnacl-js
+// sha512 from https://github.com/dchest/tweetnacl-js
+function ts64(r,n,t,o){r[n]=t>>24&255,r[n+1]=t>>16&255,r[n+2]=t>>8&255,r[n+3]=255&t,r[n+4]=o>>24&255,r[n+5]=o>>16&255,r[n+6]=o>>8&255,r[n+7]=255&o}function crypto_hashblocks_hl(r,n,t,o){for(var a,h,c,f,s,y,e,_,l,i,u,w,A,p,I,b,k,v,U,d,g,j,m,q,x,z,B=new Int32Array(16),C=new Int32Array(16),D=r[0],E=r[1],F=r[2],G=r[3],H=r[4],J=r[5],L=r[6],M=r[7],N=n[0],O=n[1],P=n[2],Q=n[3],R=n[4],S=n[5],T=n[6],V=n[7],W=0;o>=128;){for(U=0;16>U;U++)d=8*U+W,B[U]=t[d+0]<<24|t[d+1]<<16|t[d+2]<<8|t[d+3],C[U]=t[d+4]<<24|t[d+5]<<16|t[d+6]<<8|t[d+7];for(U=0;80>U;U++)if(a=D,h=E,c=F,f=G,s=H,y=J,e=L,_=M,l=N,i=O,u=P,w=Q,A=R,p=S,I=T,b=V,g=M,j=V,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=(H>>>14|R<<18)^(H>>>18|R<<14)^(R>>>9|H<<23),j=(R>>>14|H<<18)^(R>>>18|H<<14)^(H>>>9|R<<23),m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,g=H&J^~H&L,j=R&S^~R&T,m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,g=K[2*U],j=K[2*U+1],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,g=B[U%16],j=C[U%16],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,k=65535&x|z<<16,v=65535&m|q<<16,g=k,j=v,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=(D>>>28|N<<4)^(N>>>2|D<<30)^(N>>>7|D<<25),j=(N>>>28|D<<4)^(D>>>2|N<<30)^(D>>>7|N<<25),m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,g=D&E^D&F^E&F,j=N&O^N&P^O&P,m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,_=65535&x|z<<16,b=65535&m|q<<16,g=f,j=w,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=k,j=v,m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,f=65535&x|z<<16,w=65535&m|q<<16,E=a,F=h,G=c,H=f,J=s,L=y,M=e,D=_,O=l,P=i,Q=u,R=w,S=A,T=p,V=I,N=b,U%16===15)for(d=0;16>d;d++)g=B[d],j=C[d],m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=B[(d+9)%16],j=C[(d+9)%16],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,k=B[(d+1)%16],v=C[(d+1)%16],g=(k>>>1|v<<31)^(k>>>8|v<<24)^k>>>7,j=(v>>>1|k<<31)^(v>>>8|k<<24)^(v>>>7|k<<25),m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,k=B[(d+14)%16],v=C[(d+14)%16],g=(k>>>19|v<<13)^(v>>>29|k<<3)^k>>>6,j=(v>>>19|k<<13)^(k>>>29|v<<3)^(v>>>6|k<<26),m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,B[d]=65535&x|z<<16,C[d]=65535&m|q<<16;g=D,j=N,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[0],j=n[0],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[0]=D=65535&x|z<<16,n[0]=N=65535&m|q<<16,g=E,j=O,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[1],j=n[1],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[1]=E=65535&x|z<<16,n[1]=O=65535&m|q<<16,g=F,j=P,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[2],j=n[2],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[2]=F=65535&x|z<<16,n[2]=P=65535&m|q<<16,g=G,j=Q,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[3],j=n[3],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[3]=G=65535&x|z<<16,n[3]=Q=65535&m|q<<16,g=H,j=R,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[4],j=n[4],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[4]=H=65535&x|z<<16,n[4]=R=65535&m|q<<16,g=J,j=S,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[5],j=n[5],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[5]=J=65535&x|z<<16,n[5]=S=65535&m|q<<16,g=L,j=T,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[6],j=n[6],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[6]=L=65535&x|z<<16,n[6]=T=65535&m|q<<16,g=M,j=V,m=65535&j,q=j>>>16,x=65535&g,z=g>>>16,g=r[7],j=n[7],m+=65535&j,q+=j>>>16,x+=65535&g,z+=g>>>16,q+=m>>>16,x+=q>>>16,z+=x>>>16,r[7]=M=65535&x|z<<16,n[7]=V=65535&m|q<<16,W+=128,o-=128}return o}function crypto_hash(r,n,t){var o,a=new Int32Array(8),h=new Int32Array(8),c=new Uint8Array(256),f=t;for(a[0]=1779033703,a[1]=3144134277,a[2]=1013904242,a[3]=2773480762,a[4]=1359893119,a[5]=2600822924,a[6]=528734635,a[7]=1541459225,h[0]=4089235720,h[1]=2227873595,h[2]=4271175723,h[3]=1595750129,h[4]=2917565137,h[5]=725511199,h[6]=4215389547,h[7]=327033209,crypto_hashblocks_hl(a,h,n,t),t%=128,o=0;t>o;o++)c[o]=n[f-t+o];for(c[t]=128,t=256-128*(112>t?1:0),c[t-9]=0,ts64(c,t-8,f/536870912|0,f<<3),crypto_hashblocks_hl(a,h,c,t),o=0;8>o;o++)ts64(r,8*o,a[o],h[o]);return 0}var K=[1116352408,3609767458,1899447441,602891725,3049323471,3964484399,3921009573,2173295548,961987163,4081628472,1508970993,3053834265,2453635748,2937671579,2870763221,3664609560,3624381080,2734883394,310598401,1164996542,607225278,1323610764,1426881987,3590304994,1925078388,4068182383,2162078206,991336113,2614888103,633803317,3248222580,3479774868,3835390401,2666613458,4022224774,944711139,264347078,2341262773,604807628,2007800933,770255983,1495990901,1249150122,1856431235,1555081692,3175218132,1996064986,2198950837,2554220882,3999719339,2821834349,766784016,2952996808,2566594879,3210313671,3203337956,3336571891,1034457026,3584528711,2466948901,113926993,3758326383,338241895,168717936,666307205,1188179964,773529912,1546045734,1294757372,1522805485,1396182291,2643833823,1695183700,2343527390,1986661051,1014477480,2177026350,1206759142,2456956037,344077627,2730485921,1290863460,2820302411,3158454273,3259730800,3505952657,3345764771,106217008,3516065817,3606008344,3600352804,1432725776,4094571909,1467031594,275423344,851169720,430227734,3100823752,506948616,1363258195,659060556,3750685593,883997877,3785050280,958139571,3318307427,1322822218,3812723403,1537002063,2003034995,1747873779,3602036899,1955562222,1575990012,2024104815,1125592928,2227730452,2716904306,2361852424,442776044,2428436474,593698344,2756734187,3733110249,3204031479,2999351573,3329325298,3815920427,3391569614,3928383900,3515267271,566280711,3940187606,3454069534,4118630271,4000239992,116418474,1914138554,174292421,2731055270,289380356,3203993006,460393269,320620315,685471733,587496836,852142971,1086792851,1017036298,365543100,1126000580,2618297676,1288033470,3409855158,1501505948,4234509866,1607167915,987167468,1816402316,1246189591];
 
-var BLF_N = 16,
-    BLF_MAXKEYLEN = (BLF_N-2) * 4,
-    BLF_MAXUTILIZED = (BLF_N+2) * 4;
+var crypto_hash_sha512 = crypto_hash;
+
+(function(bcrypt) {
+'use strict';
+
+// Ported from OpenBSD bcrypt_pbkdf.c v1.9
+
+var BLF_J = 0;
 
 var Blowfish = function() {
   this.S = [
@@ -278,96 +282,72 @@ var Blowfish = function() {
 };
 
 Blowfish.prototype.F = function(x) {
-  var t = new Uint16Array(4),
-      y = new Uint32Array(1);
-
-  t[3] = x & 0x00ff; x >>= 8;
-  t[2] = x & 0x00ff; x >>= 8;
-  t[1] = x & 0x00ff; x >>= 8;
-  t[0] = x & 0x00ff;
-
-  y[0]  = this.S[0][t[0]] + this.S[1][t[1]];
-  y[0] ^= this.S[2][t[2]];
-  y[0] += this.S[3][t[3]];
-
-  return y[0];
-}
-
-Blowfish.prototype.encipher = function(xl, xr) {
-  var i, Xl = xl[0], Xr = xr[0], temp;
-
-  for (i = 0; i < BLF_N; ++i) {
-      Xl = Xl ^ this.P[i];
-      Xr = this.F(Xl) ^ Xr;
-
-      temp = Xl;
-      Xl = Xr;
-      Xr = temp;
-   }
-
-   temp = Xl;
-   Xl = Xr;
-   Xr = temp;
-
-   Xr = Xr ^ this.P[BLF_N];
-   Xl = Xl ^ this.P[BLF_N + 1];
-  
-   xl[0] = Xl;
-   xr[0] = Xr;
+  return (((this.S[0][(x >>> 24) & 0xff] +
+            this.S[1][(x >>> 16) & 0xff]) ^
+            this.S[2][(x >>>  8) & 0xff]) +
+            this.S[3][ x         & 0xff]);
 };
 
-Blowfish.prototype.decipher = function(xl, xr) {
-  var i, Xl = xl[0], Xr = xr[0], temp;
+Blowfish.prototype.encipher = function(x) {
+  x[0] ^= this.P[0];
+  x[1] ^= this.F(x[0]) ^ this.P[1]; x[0] ^= this.F(x[1]) ^ this.P[2];
+  x[1] ^= this.F(x[0]) ^ this.P[3]; x[0] ^= this.F(x[1]) ^ this.P[4];
+  x[1] ^= this.F(x[0]) ^ this.P[5]; x[0] ^= this.F(x[1]) ^ this.P[6];
+  x[1] ^= this.F(x[0]) ^ this.P[7]; x[0] ^= this.F(x[1]) ^ this.P[8];
+  x[1] ^= this.F(x[0]) ^ this.P[9]; x[0] ^= this.F(x[1]) ^ this.P[10];
+  x[1] ^= this.F(x[0]) ^ this.P[11]; x[0] ^= this.F(x[1]) ^ this.P[12];
+  x[1] ^= this.F(x[0]) ^ this.P[13]; x[0] ^= this.F(x[1]) ^ this.P[14];
+  x[1] ^= this.F(x[0]) ^ this.P[15]; x[0] ^= this.F(x[1]) ^ this.P[16];
 
-  for (i = BLF_N + 1; i > 1; --i) {
-    Xl = Xl ^ this.P[i];
-    Xr = this.F(Xl) ^ Xr;
-
-    temp = Xl;
-    Xl = Xr;
-    Xr = temp;
-   }
-
-   temp = Xl;
-   Xl = Xr;
-   Xr = temp;
-
-   Xr = Xr ^ this.P[1];
-   Xl = Xl ^ this.P[0];
-
-   xl[0] = Xl;
-   xr[0] = Xr;
+  var t = x[0];
+  x[0] = x[1] ^ this.P[17];
+  x[1] = t;
 };
 
-Blowfish.prototype.stream2word = function(data, databytes, current){
-  var i, j = current[0], temp = 0;
+Blowfish.prototype.decipher = function(x) {
+  x[0] ^= this.P[17];
+  x[1] ^= this.F(x[0]) ^ this.P[16]; x[0] ^= this.F(x[1]) ^ this.P[15];
+  x[1] ^= this.F(x[0]) ^ this.P[14]; x[0] ^= this.F(x[1]) ^ this.P[13];
+  x[1] ^= this.F(x[0]) ^ this.P[12]; x[0] ^= this.F(x[1]) ^ this.P[11];
+  x[1] ^= this.F(x[0]) ^ this.P[10]; x[0] ^= this.F(x[1]) ^ this.P[9];
+  x[1] ^= this.F(x[0]) ^ this.P[8]; x[0] ^= this.F(x[1]) ^ this.P[7];
+  x[1] ^= this.F(x[0]) ^ this.P[6]; x[0] ^= this.F(x[1]) ^ this.P[5];
+  x[1] ^= this.F(x[0]) ^ this.P[4]; x[0] ^= this.F(x[1]) ^ this.P[3];
+  x[1] ^= this.F(x[0]) ^ this.P[2]; x[0] ^= this.F(x[1]) ^ this.P[1];
 
-  for (i = 0; i < 4; i++, j++) {
-    if (j >= databytes) j = 0;
-    temp = (temp << 8) | data[j];
+  var t = x[0];
+  x[0] = x[1] ^ this.P[0];
+  x[1] = t;
+};
+
+Blowfish.prototype.stream2word = function(data, databytes){
+  var i, temp = 0;
+
+  for (i = 0; i < 4; i++, BLF_J++) {
+    if (BLF_J >= databytes) BLF_J = 0;
+    temp = (temp << 8) | data[BLF_J];
   }
-
-  current[0] = j;
+ 
   return temp;
 };
 
 Blowfish.prototype.expand0state = function(key, keybytes) {
-  var j = new Uint16Array(1),
-      d = new Uint32Array(2), i, k;
+  var d = new Uint32Array(2), i, k;
 
-  for (i = 0; i < BLF_N + 2; i++) {
-    this.P[i] ^= this.stream2word(key, keybytes, j);    
+  for (i = 0, BLF_J = 0; i < 18; i++) {
+    this.P[i] ^= this.stream2word(key, keybytes);
   }
+  BLF_J = 0;
 
-  for (i = 0; i < BLF_N + 2; i += 2) {
-    this.encipher(d, d.subarray(1));
+  for (i = 0; i < 18; i += 2) {
+    this.encipher(d);
     this.P[i]   = d[0];
     this.P[i+1] = d[1];
   }
 
   for (i = 0; i < 4; i++) {
     for (k = 0; k < 256; k += 2) {
-      this.encipher(d, d.subarray(1));
+      this.encipher(d);
       this.S[i][k]   = d[0];
       this.S[i][k+1] = d[1];
     }
@@ -375,192 +355,81 @@ Blowfish.prototype.expand0state = function(key, keybytes) {
 };
 
 Blowfish.prototype.expandstate = function(data, databytes, key, keybytes) {
-  var d = new Uint32Array(2),
-      j = new Uint16Array(1), i, k;
+  var d = new Uint32Array(2), i, k;
 
-  for (i = 0; i < BLF_N + 2; i++) {
-    this.P[i] ^= this.stream2word(key, keybytes, j);
+  for (i = 0, BLF_J = 0; i < 18; i++) {
+    this.P[i] ^= this.stream2word(key, keybytes);
   }
 
-  j[0] = 0;
-  for (i = 0; i < BLF_N + 2; i += 2) {
-    d[0] ^= this.stream2word(data, databytes, j);
-    d[1] ^= this.stream2word(data, databytes, j);
-    this.encipher(d, d.subarray(1));
+  for (i = 0, BLF_J = 0; i < 18; i += 2) {
+    d[0] ^= this.stream2word(data, databytes);
+    d[1] ^= this.stream2word(data, databytes);
+    this.encipher(d);
     this.P[i]   = d[0];
     this.P[i+1] = d[1];
   }
 
   for (i = 0; i < 4; i++) {
     for (k = 0; k < 256; k += 2) {
-      d[0] ^= this.stream2word(data, databytes, j);
-      d[1] ^= this.stream2word(data, databytes, j);
-      this.encipher(d, d.subarray(1));
+      d[0] ^= this.stream2word(data, databytes);
+      d[1] ^= this.stream2word(data, databytes);
+      this.encipher(d);
       this.S[i][k]   = d[0];
       this.S[i][k+1] = d[1];
     }
   }
-
+  BLF_J = 0;
 };
 
 Blowfish.prototype.enc = function(data, blocks) {
-  var i, d = data.subarray(0);
-  for (i = 0; i < blocks; i++) {
-    this.encipher(d, d.subarray(1));
-    d = d.subarray(2);
+  for (var i = 0; i < blocks; i++) {
+    this.encipher(data.subarray(i*2));
   }
 };
 
 Blowfish.prototype.dec = function(data, blocks) {
-  var i, d = data.subarray(0);
-  for (i = 0; i < blocks; i++) {
-    this.decipher(d, d.subarray(1));
-    d = d.subarray(2);
+  for (var i = 0; i < blocks; i++) {
+    this.decipher(data.subarray(i*2));
   }
-};
-
-Blowfish.prototype.ecb_encrypt = function(data, len) {
-  var t = new Uint32Array(2),
-      d = data.subarray(0), i;
-
-  for (i = 0; i < len; i += 8) {
-    t[0] = d[0] << 24 | d[1] << 16 | d[2] << 8 | d[3];
-    t[1] = d[4] << 24 | d[5] << 16 | d[6] << 8 | d[7];
-    this.encipher(t, t.subarray(1));
-    d[0] = t[0] >> 24;
-    d[1] = t[0] >> 16;
-    d[2] = t[0] >>  8;
-    d[3] = t[0];
-    d[4] = t[1] >> 24;
-    d[5] = t[1] >> 16;
-    d[6] = t[1] >>  8;
-    d[7] = t[1];
-    d = d.subarray(8);
-  }
-};
-
-Blowfish.prototype.ecb_decrypt = function(data, len) {
-  var t = new Uint32Array(2),
-      d = data.subarray(0), i;
-
-  for (i = 0; i < len; i += 8) {
-    t[0] = d[0] << 24 | d[1] << 16 | d[2] << 8 | d[3];
-    t[1] = d[4] << 24 | d[5] << 16 | d[6] << 8 | d[7];
-    this.decipher(t, t.subarray(1));
-    d[0] = t[0] >> 24;
-    d[1] = t[0] >> 16;
-    d[2] = t[0] >>  8;
-    d[3] = t[0];
-    d[4] = t[1] >> 24;
-    d[5] = t[1] >> 16;
-    d[6] = t[1] >>  8;
-    d[7] = t[1];
-    d = d.subarray(8);
-  }
-};
-
-Blowfish.prototype.cbc_encrypt = function(iv, data, len) {
-  var t = new Uint32Array(2),
-      d = data.subarray(0), i, j;
-
-  for (i = 0; i < len; i += 8) {
-    for (j = 0; j < 8; j++)
-      d[j] ^= iv[j];
-    t[0] = d[0] << 24 | d[1] << 16 | d[2] << 8 | d[3];
-    t[1] = d[4] << 24 | d[5] << 16 | d[6] << 8 | d[7];
-    this.encipher(l, r);
-    d[0] = t[0] >> 24;
-    d[1] = t[0] >> 16;
-    d[2] = t[0] >>  8;
-    d[3] = t[0];
-    d[4] = t[1] >> 24;
-    d[5] = t[1] >> 16;
-    d[6] = t[1] >>  8;
-    d[7] = t[1];
-    iv = d;
-    d = d.subarray(8);
-  }
-};
-
-Blowfish.prototype.cbc_decrypt = function(iva, data, len) {
-  var t = new Uint32Array(2),
-      d = data.subarray(0),
-      iv = d.subarray(len - 16), i, j;
-
-  d  = d.subarray(len -  8);
-  for (i = len - 8; i >= 8; i -= 8) {
-    t[0] = d[0] << 24 | d[1] << 16 | d[2] << 8 | d[3];
-    t[1] = d[4] << 24 | d[5] << 16 | d[6] << 8 | d[7];
-    this.decipher(t, t.subarray(1));
-    d[0] = t[0] >> 24;
-    d[1] = t[0] >> 16;
-    d[2] = t[0] >>  8;
-    d[3] = t[0];
-    d[4] = t[1] >> 24;
-    d[5] = t[1] >> 16;
-    d[6] = t[1] >>  8;
-    d[7] = t[1];
-    for (j = 0; j < 8; j++)
-      d[j] ^= iv[j];
-    iv = iv.subarray(-8);
-    d  = d.subarray(-8);
-  }
-  t[0] = d[0] << 24 | d[1] << 16 | d[2] << 8 | d[3];
-  t[1] = d[4] << 24 | d[5] << 16 | d[6] << 8 | d[7];
-  this.decipher(t, t.subarray(1));
-  d[0] = t[0] >> 24;
-  d[1] = t[0] >> 16;
-  d[2] = t[0] >>  8;
-  d[3] = t[0];
-  d[4] = t[1] >> 24;
-  d[5] = t[1] >> 16;
-  d[6] = t[1] >>  8;
-  d[7] = t[1];
-  for (j = 0; j < 8; j++)
-    d[j] ^= iva[j];
 };
 
 var BCRYPT_BLOCKS = 8,
-    BCRYPT_HASHSIZE = (BCRYPT_BLOCKS * 4);
-    SHA512_DIGEST_LENGTH = nacl.lowlevel.crypto_hash_BYTES;
+    BCRYPT_HASHSIZE = 32;
 
 function bcrypt_hash(sha2pass, sha2salt, out) {
   var state = new Blowfish(),
-      ciphertext = new Uint8Array([79,120,121,99,104,114,111,109,97,116,105,99,66,108,111,119,102,105,115,104,83,119,97,116,68,121,110,97,109,105,116,101]),
+      cdata = new Uint32Array(BCRYPT_BLOCKS), i,
+      ciphertext = new Uint8Array([79,120,121,99,104,114,111,109,97,116,105,99,66,108,111,119,102,105,115,104,83,119,97,116,68,121,110,97,109,105,116,101]);
       //"OxychromaticBlowfishSwatDynamite"
-      cdata = new Uint32Array(BCRYPT_BLOCKS),
-      i, j = new Uint16Array(1),
-      shalen = SHA512_DIGEST_LENGTH;
 
-  state.expandstate(sha2salt, shalen, sha2pass, shalen);
+  state.expandstate(sha2salt, 64, sha2pass, 64);
   for (i = 0; i < 64; i++) {
-    state.expand0state(sha2salt, shalen);
-    state.expand0state(sha2pass, shalen);
+    state.expand0state(sha2salt, 64);
+    state.expand0state(sha2pass, 64);
   }
 
   for (i = 0; i < BCRYPT_BLOCKS; i++)
-    cdata[i] = state.stream2word(ciphertext, ciphertext.byteLength, j);
+    cdata[i] = state.stream2word(ciphertext, ciphertext.byteLength);
   for (i = 0; i < 64; i++)
-    state.enc(cdata, Math.floor(cdata.byteLength / 8)); // is Math.floor necessary ?
+    state.enc(cdata, cdata.byteLength / 8);
 
   for (i = 0; i < BCRYPT_BLOCKS; i++) {
-    out[4*i+3] = cdata[i] >> 24;
-    out[4*i+2] = cdata[i] >> 16;
-    out[4*i+1] = cdata[i] >> 8;
+    out[4*i+3] = cdata[i] >>> 24;
+    out[4*i+2] = cdata[i] >>> 16;
+    out[4*i+1] = cdata[i] >>> 8;
     out[4*i+0] = cdata[i];
   }
 };
 
 function bcrypt_pbkdf(pass, passlen, salt, saltlen, key, keylen, rounds) {
-  var sha2pass = new Uint8Array(SHA512_DIGEST_LENGTH),
-      sha2salt = new Uint8Array(SHA512_DIGEST_LENGTH),
+  var sha2pass = new Uint8Array(64),
+      sha2salt = new Uint8Array(64),
       out = new Uint8Array(BCRYPT_HASHSIZE),
       tmpout = new Uint8Array(BCRYPT_HASHSIZE),
       countsalt = new Uint8Array(saltlen+4),
       i, j, amt, stride, dest, count,
       origkeylen = keylen;
 
-  /* nothing crazy */
   if (rounds < 1)
     return -1;
   if (passlen === 0 || saltlen === 0 || keylen === 0 ||
@@ -573,21 +442,21 @@ function bcrypt_pbkdf(pass, passlen, salt, saltlen, key, keylen, rounds) {
   for (i = 0; i < saltlen; i++)
     countsalt[i] = salt[i];
 
-  nacl.lowlevel.crypto_hash(sha2pass, pass, passlen);
+  crypto_hash_sha512(sha2pass, pass, passlen);
 
   for (count = 1; keylen > 0; count++) {
-    countsalt[saltlen+0] = count >> 24;
-    countsalt[saltlen+1] = count >> 16;
-    countsalt[saltlen+2] = count >>  8;
+    countsalt[saltlen+0] = count >>> 24;
+    countsalt[saltlen+1] = count >>> 16;
+    countsalt[saltlen+2] = count >>>  8;
     countsalt[saltlen+3] = count;
 
-    nacl.lowlevel.crypto_hash(sha2salt, countsalt, saltlen + 4);
+    crypto_hash_sha512(sha2salt, countsalt, saltlen + 4);
     bcrypt_hash(sha2pass, sha2salt, tmpout);
     for (i = out.byteLength; i--;)
       out[i] = tmpout[i];
 
     for (i = 1; i < rounds; i++) {
-      nacl.lowlevel.crypto_hash(sha2salt, tmpout, tmpout.byteLength);
+      crypto_hash_sha512(sha2salt, tmpout, tmpout.byteLength);
       bcrypt_hash(sha2pass, sha2salt, tmpout);
       for (j = 0; j < out.byteLength; j++)
         out[j] ^= tmpout[j];
@@ -605,3 +474,10 @@ function bcrypt_pbkdf(pass, passlen, salt, saltlen, key, keylen, rounds) {
 
   return 0;
 };
+
+bcrypt.BLOCKS = BCRYPT_BLOCKS;
+bcrypt.HASHSIZE = BCRYPT_HASHSIZE;
+bcrypt.hash = bcrypt_hash;
+bcrypt.pbkdf = bcrypt_pbkdf;
+
+})(typeof module !== 'undefined' && module.exports ? module.exports : (window.bcrypt = window.bcrypt || {}));
